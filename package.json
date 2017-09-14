@@ -1,6 +1,6 @@
 {
   "name": "trpg-actor-template",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "description": "actor template parser utils",
   "main": "index.js",
   "scripts": {
