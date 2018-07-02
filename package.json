@@ -19,5 +19,7 @@
     "url": "https://github.com/TRPGEngine/ActorTemplate/issues"
   },
   "homepage": "https://github.com/TRPGEngine/ActorTemplate#readme",
-  "dependencies": {}
+  "dependencies": {
+    "trpg-sandbox": "github:TRPGEngine/JsSandbox"
+  }
 }
