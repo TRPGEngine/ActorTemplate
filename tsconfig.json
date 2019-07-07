@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "sourceMap": true,
+    "baseUrl": ".",
+    "outDir": "./dist",
+    "lib": ["es6", "dom"],
+    "module": "esnext",
+  },
+  "include": ["**/*"]
+}

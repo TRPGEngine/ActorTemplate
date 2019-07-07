@@ -1,36 +1,30 @@
-const Template = require('./models/Template');
-const Group = require('./models/Group');
-const Cell = require('./models/Cell');
-const State = require('./models/State');
-const Effect = require('./models/Effect');
+import Template from './models/Template';
+import Group from './models/Group';
+import Cell from './models/Cell';
+import State from './models/State';
+import Effect from './models/Effect';
 
-let getInitTemplate = function(name) {
+export const getInitTemplate = function(name?) {
   return new Template(name);
-}
+};
 
-exports.getInitTemplate = getInitTemplate;
-
-let getInitGroup = function(name) {
+export const getInitGroup = function(name?) {
   return new Group(name);
-}
+};
 
-exports.getInitGroup = getInitGroup;
-
-let getInitCell = function(name) {
+export const getInitCell = function(name?) {
   return new Cell(name);
-}
+};
 
-exports.getInitCell = getInitCell;
-
-exports.getInitState = function(name, desc, priority) {
+export const getInitState = function(name, desc, priority) {
   return new State(name, desc, priority);
-}
+};
 
-exports.getInitEffect = function(name, attributes, priority) {
+export const getInitEffect = function(name, attributes, priority) {
   return new Effect(name, attributes, priority);
-}
+};
 
-exports.stringify = function(template) {
+export const stringify = function(template) {
   return JSON.stringify(template, [
     // 允许的参数
     'name',
@@ -48,8 +42,8 @@ exports.stringify = function(template) {
     'func',
     'type',
     'value',
-  ])
-}
+  ]);
+};
 
 function parseGroup(groupObj) {
   let group = getInitGroup();
@@ -72,9 +66,9 @@ function parseCell(cellObj) {
   return cell;
 }
 
-exports.parse = function(str) {
+export const parse = function(str: string) {
   try {
-    if(typeof str === 'object') {
+    if (typeof str === 'object') {
       str = JSON.stringify(str);
     }
     let obj = JSON.parse(str);
@@ -86,16 +80,16 @@ exports.parse = function(str) {
     let _groupIndex = 0;
     for (var i = 0; i < template.table.length; i++) {
       let cell = template.table[i];
-      if(!!cell.list) {
+      if (!!cell.list) {
         _groupIndex++;
         template.table[i] = parseGroup(cell);
-      }else {
+      } else {
         template.table[i] = parseCell(cell);
       }
     }
     template._groupIndex = _groupIndex;
     return template;
-  }catch(err) {
+  } catch (err) {
     throw new Error(err);
   }
-}
+};
