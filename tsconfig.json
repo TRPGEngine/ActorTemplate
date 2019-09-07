@@ -6,6 +6,7 @@
     "outDir": "./dist",
     "lib": ["es6", "dom"],
     "module": "esnext",
+    "declaration": true
   },
   "include": ["**/*"]
 }
