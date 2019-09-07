@@ -141,7 +141,7 @@ export default class Template {
 
   evalState() {
     this.eval();
-    const _e = function(str, def) {
+    const _e = (str, def) => {
       try {
         return sandbox.run(str, this.context);
       } catch (err) {
